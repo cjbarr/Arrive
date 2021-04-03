@@ -1,15 +1,17 @@
 package com.arrive.main;
 
-import com.arrive.dao.BlogServices;
+import com.arrive.dao.BlogResourceServices;
+import com.arrive.dao.CheckInServices;
+import com.arrive.entities.CheckIn;
 
 public class Arrive {
 	
-	static BlogServices blogServices = new BlogServices();
+	static BlogResourceServices blogServices = new BlogResourceServices();
+	static CheckInServices checkInServices = new CheckInServices();
 
 	
 	public static void main(String[] args) {
 		
-		System.out.println(blogServices.getAllBlogs());
 		
 		
 	}

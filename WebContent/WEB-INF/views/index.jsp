@@ -37,6 +37,7 @@
 <ul>
 
 
+
      <li>${model.blog.get(0).getId()} </li>
      <li>${model.blog.get(0).getBlogText()} </li>
      <li><img class="blogPic" src="${model.blog.get(0).getImageLink()}" alt="blog1Pic"> </li>

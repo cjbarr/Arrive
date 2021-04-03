@@ -33,7 +33,7 @@
 <h1>Here's a snapshot of how you've been doing</h1>
 <ul>
     <li><a href="details">Details of ?date?</a></li>
-    <li><a href="details">Details of ?date?</a></li>
+    <li>Check in #${model.checkIn.get(0).getId()}, you felt:${model.checkIn.get(0).getFeelValue()}  <a href="details">Details of ?date?</a></li>
 </ul>
 
 

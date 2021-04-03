@@ -1,6 +1,6 @@
 
 
-.blogPic{width:25vw;}
+.blogPic{max-width:25vw;}
 
 body{background-color: aquamarine;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

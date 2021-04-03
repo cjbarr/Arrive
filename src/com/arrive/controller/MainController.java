@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.arrive.dao.BlogServices;
+import com.arrive.dao.BlogResourceServices;
+import com.arrive.dao.CheckInServices;
 import com.arrive.entities.Blog;
+import com.arrive.entities.CheckIn;
 
 
 
@@ -23,7 +25,8 @@ import com.arrive.entities.Blog;
 @SessionAttributes("employeeKey")
 public class MainController {
 	
-	static BlogServices blogServices = new BlogServices();
+	static BlogResourceServices blogServices = new BlogResourceServices();
+	static CheckInServices checkInServices = new CheckInServices();
 	//handlers
 	
 	@RequestMapping(value={"/", "/index"})  // "/" ==> this is the root or home page
@@ -63,7 +66,10 @@ public class MainController {
 	
 	@RequestMapping("/tracker")  // this is from href value
 	public ModelAndView trackerHandler() {
-		ModelAndView mav = new ModelAndView("tracker");
+		List<CheckIn> checkInList = checkInServices.getAllCheckIns();
+		Map<String, Object> model = new HashMap<String, Object>();
+		model.put("checkIn", checkInList);
+		ModelAndView mav = new ModelAndView("tracker", "model", model);
 		return mav; // view file name tracker.jsp
 	}
 	

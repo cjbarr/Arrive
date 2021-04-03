@@ -43,6 +43,7 @@
      <li>${model.blog.get(1).getId()} </li>
      <li>${model.blog.get(1).getBlogText()} </li>
      <li><img class="blogPic" src="${model.blog.get(1).getImageLink()}" alt="blog1Pic"> </li>
+   
 </ul>
 
 

@@ -14,17 +14,19 @@ int id;
 String logoPic;
 String description;
 String web;
+String name;
 
 public Resource() {
 	super();
 }
 
-public Resource(int id, String logoPic, String description, String web) {
+public Resource(int id, String logoPic, String description, String web, String name) {
 	super();
 	this.id = id;
 	this.logoPic = logoPic;
 	this.description = description;
 	this.web = web;
+	this.name = name;
 }
 
 public int getId() {
@@ -57,6 +59,14 @@ public String getWeb() {
 
 public void setWeb(String web) {
 	this.web = web;
+}
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+	this.name = name;
 }
 
 

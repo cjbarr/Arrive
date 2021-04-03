@@ -24,6 +24,12 @@ font-size:large;
 font-weight:bold;
 }
 
+
+.logoPic{
+	max-width:40vw;
+	margin-left:auto;
+	margin-right:auto;
+}
 .topHead{text-align: center;
 background-color:azure;
 width:33vw;
@@ -52,6 +58,13 @@ width:25%;
 margin-left:auto;
 margin-right:auto;
 width:50%;}
+
+.resourceDiv{
+	width:65vw;
+	margin-left:auto;
+	margin-right:auto;
+	padding:5px;
+}
 
 
 .social-footer {

@@ -36,7 +36,7 @@
 
 <ul>
 <c:forEach items="${model.blog}" var="item">
-    ${item}<br>
+
 
 
 

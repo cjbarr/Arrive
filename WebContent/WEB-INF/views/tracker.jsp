@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,8 +32,10 @@
 
 <h1>Here's a snapshot of how you've been doing</h1>
 <ul>
+<c:forEach items="${model.checkIn}" var="item">
     <li><a href="details">Details of ?date?</a></li>
-    <li>Check in #${model.checkIn.get(0).getId()}, you felt:${model.checkIn.get(0).getFeelValue()}  <a href="details">Details of ?date?</a></li>
+    <li>Check in #${item.getId()}, you felt:${item.getFeelValue()}  <a href="details">Details of ?date?</a></li>
+  </c:forEach>
 </ul>
 
 

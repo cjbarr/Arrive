@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,24 +25,27 @@
    <jsp:include page="header.jsp"/> 
 
 </header>
-
-
-
-
-    <h4>Here are some resources regarding mental health:</h4>
-    <ul>
     
-    
-     <li>${model.resource.get(0).getId()} </li>
-     <li>${model.resource.get(0).getDescription()} </li>
-        <li>${model.resource.get(0).getWeb()} </li>
-     <li><img  src="${model.resource.get(0).getLogoPic()}" alt="Pic"> </li>
+    <c:forEach items="${model.resource}" var="item">
+<div class="resourceDiv">
+
+    <img class="logoPic"  src="${item.getLogoPic()}" alt="Pic">
+    <br>
+    <h3>${item.getName()}</h3>
+    <br>
+     <span>${item.getDescription()}</span>
+     <br>
+     <a href="${item.getWeb()}">Website</a>
+</div>
+<br>
+      </c:forEach>
+      
         <li>http://www.mhresources.org/</li>
         <li>https://www.samhsa.gov/find-help/national-helpline</li>
         <li>https://namimn.org/support/resources/general-mental-health-resources/</li>
         <li>https://mentalhealthmn.org/support/community-resources/statewide-mental-health-resources/</li>
 
-    </ul>
+   
 
    <footer>
 <jsp:include page="footer.jsp"/>

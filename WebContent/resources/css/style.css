@@ -1,6 +1,11 @@
 
-
-.blogPic{max-width:25vw;}
+.blogDiv{width:75vw;
+margin-left:auto;
+margin-right:auto;
+}
+.blogPic{max-width:50vw;
+display:block;
+margin:auto;}
 
 body{background-color: aquamarine;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,11 +16,13 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	width:66%;
 	margin-left:auto;
 	margin-right:auto;
-	justify-content:center;
+	text-align:center;
 }
 
 #dayText{width:50%;
-height: 10%;}
+height: 40vh;
+margin-left:auto;
+margin-right:auto;}
 
 .face{width:3vw;}
 

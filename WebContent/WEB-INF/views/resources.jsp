@@ -35,7 +35,7 @@
     <br>
      <span>${item.getDescription()}</span>
      <br>
-     <a href="${item.getWeb()}">Website</a>
+     <a href="${item.getWeb()}">${item.getName()}</a>
 </div>
 <br>
       </c:forEach>

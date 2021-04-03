@@ -34,19 +34,20 @@
     better than they appear.
 </p>
 
-<ul>
+
 <c:forEach items="${model.blog}" var="item">
+<div class="blogDiv">
 
 
 
+     <img class="blogPic" src="${item.getImageLink()}" alt="blog1Pic">
+     <p>${item.getBlogText()}</p>
 
-     <li>${item.getId()} </li>
-     <li>${item.getBlogText()} </li>
-     <li><img class="blogPic" src="${item.getImageLink()}" alt="blog1Pic"> </li>
-     
+ </div>    
+ <br>
        </c:forEach>
      
-</ul>
+
 
 
 

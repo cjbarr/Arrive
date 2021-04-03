@@ -31,6 +31,12 @@
 
     <h4>Here are some resources regarding mental health:</h4>
     <ul>
+    
+    
+     <li>${model.resource.get(0).getId()} </li>
+     <li>${model.resource.get(0).getDescription()} </li>
+        <li>${model.resource.get(0).getWeb()} </li>
+     <li><img  src="${model.resource.get(0).getLogoPic()}" alt="Pic"> </li>
         <li>http://www.mhresources.org/</li>
         <li>https://www.samhsa.gov/find-help/national-helpline</li>
         <li>https://namimn.org/support/resources/general-mental-health-resources/</li>

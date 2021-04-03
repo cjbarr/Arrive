@@ -17,6 +17,7 @@ import com.arrive.dao.BlogResourceServices;
 import com.arrive.dao.CheckInServices;
 import com.arrive.entities.Blog;
 import com.arrive.entities.CheckIn;
+import com.arrive.entities.Resource;
 
 
 
@@ -25,14 +26,14 @@ import com.arrive.entities.CheckIn;
 @SessionAttributes("employeeKey")
 public class MainController {
 	
-	static BlogResourceServices blogServices = new BlogResourceServices();
+	static BlogResourceServices blogResourceServices = new BlogResourceServices();
 	static CheckInServices checkInServices = new CheckInServices();
 	//handlers
 	
 	@RequestMapping(value={"/", "/index"})  // "/" ==> this is the root or home page
 	public ModelAndView indexHandler() {
 		
-		List<Blog> blogList = blogServices.getAllBlogs();
+		List<Blog> blogList = blogResourceServices.getAllBlogs();
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("blog", blogList);
 		ModelAndView mav = new ModelAndView("index", "model",model);
@@ -60,7 +61,10 @@ public class MainController {
 	
 	@RequestMapping("/resources")  // this is from href value
 	public ModelAndView resourcesHandler() {
-		ModelAndView mav = new ModelAndView("resources");
+		List<Resource> resourceList = blogResourceServices.getAllResources();
+		Map<String, Object> model = new HashMap<String, Object>();
+		model.put("resource", resourceList);
+		ModelAndView mav = new ModelAndView("resources", "model", model);
 		return mav; // view file name resources.jsp
 	}
 	

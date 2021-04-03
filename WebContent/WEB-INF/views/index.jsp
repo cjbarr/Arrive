@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,16 +35,17 @@
 </p>
 
 <ul>
+<c:forEach items="${model.blog}" var="item">
+    ${item}<br>
 
 
 
-     <li>${model.blog.get(0).getId()} </li>
-     <li>${model.blog.get(0).getBlogText()} </li>
-     <li><img class="blogPic" src="${model.blog.get(0).getImageLink()}" alt="blog1Pic"> </li>
-     <li>${model.blog.get(1).getId()} </li>
-     <li>${model.blog.get(1).getBlogText()} </li>
-     <li><img class="blogPic" src="${model.blog.get(1).getImageLink()}" alt="blog1Pic"> </li>
-   
+     <li>${item.getId()} </li>
+     <li>${item.getBlogText()} </li>
+     <li><img class="blogPic" src="${item.getImageLink()}" alt="blog1Pic"> </li>
+     
+       </c:forEach>
+     
 </ul>
 
 

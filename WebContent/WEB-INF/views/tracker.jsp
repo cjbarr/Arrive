@@ -35,7 +35,11 @@
 
 <div class="pixelDisplay">
 <c:forEach items="${model.checkIn}" var="pixel">
-	<div class ="pixel-${pixel.getFeelValue()}" onClick="window.location='checkIn/details/${pixel.getId()}'"></div>
+
+	<div class ="pixel-${pixel.getFeelValue()}" onClick="window.location='checkIn/details/${pixel.getId()}'">
+	
+
+</div>
  </c:forEach>
 </div>
 

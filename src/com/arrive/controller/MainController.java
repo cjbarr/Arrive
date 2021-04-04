@@ -3,7 +3,7 @@ package com.arrive.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+//
 //import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,6 @@ import com.arrive.entities.Resource;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes("employeeKey")
 public class MainController {
 	
 	static BlogResourceServices blogResourceServices = new BlogResourceServices();

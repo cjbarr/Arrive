@@ -42,12 +42,10 @@
 
 
 <h4>Snapshot Details:</h4>
-<ul>
+
 <c:forEach items="${model.checkIn}" var="item">
-    <li><a href="details">Details of ?date?</a></li>
-    <li>${item.getDate()}, you felt:<a href="details">${item.getFeelValue()}</a></li>
+    <p>On ${item.getDate()}, you felt:<a href="details">${item.getFeelValue()}</a></p>
   </c:forEach>
-</ul>
 
 
 <div>

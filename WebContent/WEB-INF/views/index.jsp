@@ -28,18 +28,13 @@
 </header>
 
 
-<h1>Welcome to Arrive Home</h1>
-<p>Arrive is an application that asks users to take a moment and check in. By quantifying your emotions and daily experiences,
-     you can look back and see that often days are 
-    better than they appear.
-</p>
 
 
 <c:forEach items="${model.blog}" var="item">
 <div class="blogDiv">
 
 
-
+	<h2>Blog Title</h2>
      <img class="blogPic" src="${item.getImageLink()}" alt="blog1Pic">
      <p>${item.getBlogText()}</p>
 

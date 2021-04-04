@@ -30,11 +30,22 @@
 
 
 
-<h1>Here's a snapshot of how you've been doing</h1>
+<h3>Here's your visual snapshot:</h3>
+
+<div class="pixelDisplay">
+<c:forEach items="${model.checkIn}" var="pixel">
+	<div class ="pixel-${pixel.getFeelValue()}"></div>
+ </c:forEach>
+</div>
+
+
+
+
+<h4>Snapshot Details:</h4>
 <ul>
 <c:forEach items="${model.checkIn}" var="item">
     <li><a href="details">Details of ?date?</a></li>
-    <li>Check in #${item.getId()}, you felt:${item.getFeelValue()}  <a href="details">Details of ?date?</a></li>
+    <li>${item.getDate()}, you felt:<a href="details">${item.getFeelValue()}</a></li>
   </c:forEach>
 </ul>
 

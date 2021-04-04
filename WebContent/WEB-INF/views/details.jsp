@@ -37,9 +37,12 @@
     <h3> ${model.getDate()} Details</h3>
     <span>You were doing: ${model.getFeelValue()}</span>
     <h4>You felt:  ${model.getCheckInText()} </h4>
+	
+	    <button>edit</button>
+	<form action= "deleteCheckIn/${model.getId()}" method="POST">
 
-    <button>edit</button>
-    <button>delete</button>
+   <input type="submit" name="delete" value="Delete this Check In">
+    </form>
 
 
 

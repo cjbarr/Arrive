@@ -13,10 +13,10 @@
     <h3><small>Show up for yourself</small></h3>
     <ul class="subnav-hero-subnav">
         <li><a href="/arrive">Home</a></li>
-        <li><a href="checkIn">Check In</a></li>
-        <li><a href="tracker">Tracker</a></li>
-        <li><a href="profile" >Profile</a></li>
-        <li><a href="resources">Resources</a></li>
+        <li><a href="/arrive/checkIn">Check In</a></li>
+        <li><a href="/arrive/tracker">Tracker</a></li>
+        <li><a href="/arrive/profile" >Profile</a></li>
+        <li><a href="/arrive/resources">Resources</a></li>
     </ul>
 </header>
 </body>

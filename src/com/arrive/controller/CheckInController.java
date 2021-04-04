@@ -59,6 +59,33 @@ public class CheckInController {
 	}
 	
 	
+	@RequestMapping(value="/details/deleteCheckIn/{checkInId}", method=RequestMethod.POST)
+	public ModelAndView createCheckInDeleteHandler(@PathVariable int checkInId) {
+		System.out.println("THIS IS THE DELETE HANDLER");
+
+		
+
+
+		
+
+		
+		
+		
+		
+		CheckInServices checkInServices = new CheckInServices();
+		checkInServices.deleteCheckInById(checkInId);
+		return new ModelAndView("redirect:/tracker");
+		
+		
+	
+	
+	
+	
+		
+	}
+	
+	
+	
 	@RequestMapping(value="/details/{checkInId}", method=RequestMethod.GET)
 	public ModelAndView createCheckInGetHandler(@PathVariable int checkInId) {
 		System.out.println("THIS IS THE GET HANDLER");

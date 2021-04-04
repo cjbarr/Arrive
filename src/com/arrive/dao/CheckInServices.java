@@ -51,6 +51,29 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 		
 		
 		
+		@Override
+		public CheckIn deleteCheckInById(int id) {
+			CheckIn result = null;
+
+			try {
+				connect();
+				result = em.find(CheckIn.class, id);
+				em.getTransaction().begin();
+				em.remove(result);
+				em.getTransaction().commit();
+				
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				dispose();
+			}
+			return result;
+		}
+		
+		
+		
+		
 
 		@Override
 		public List<CheckIn> getAllCheckIns() {

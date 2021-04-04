@@ -19,6 +19,7 @@
 </head>
 
 <body>
+<div class="pageDiv">
 <header>
 
    <jsp:include page="header.jsp"/> 
@@ -26,6 +27,7 @@
 </header>
 
 
+<div class="pageWrap">
 
 
 
@@ -44,9 +46,11 @@
         <h4></h4>
     </div>
 
-    <footer>
+</div>
+<footer>
 <jsp:include page="footer.jsp"/>
 </footer>
+</div>
 
 </body>
 

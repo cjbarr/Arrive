@@ -19,12 +19,17 @@
 </head>
 
 <body>
-
+   <div class="pageDiv">
 <header>
 
    <jsp:include page="header.jsp"/> 
 
 </header>
+    
+    
+
+<div class="pageWrap"> 
+    
     
     <c:forEach items="${model.resource}" var="item">
 <div class="resourceDiv">
@@ -47,9 +52,11 @@
 
    
 
-   <footer>
+</div>
+<footer>
 <jsp:include page="footer.jsp"/>
 </footer>
+</div>
 
 </body>
 

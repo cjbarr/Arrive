@@ -8,8 +8,11 @@ display:block;
 margin:auto;
 padding:2vh;}
 
-body{background-color: aquamarine;
+.blogTitle{margin-left:5vw;}
+
+body{
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color:#bed7d8;
 
 }
 
@@ -29,7 +32,7 @@ margin-right:auto;}
 
 #footerText{color:white;
 font-size:large;
-font-weight:bold;
+
 }
 
 
@@ -60,6 +63,18 @@ border-radius: 10%;
 display:inline;
 width:25%;
 
+}
+
+.pageDiv{background-color:#bed7d8;
+position:relative;
+min-height:100vh;}
+
+.pageWrap{padding-bottom:2.5rem;
+background:white;
+width:90vw;
+margin-left:auto;
+margin-right:auto;
+margin-top:2vh;
 }
 
 .pixel-Bad{width:1.5vw;
@@ -114,35 +129,14 @@ width:50%;}
 
 
 .social-footer {
-  padding: 1rem;
-  background: #8a8a8a;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-    position:fixed;
+	position:absolute;
+	height:2.5rem;
     bottom:0;
     width: 100%;
+    background:#1779ba;
 }
 
-.social-footer .social-footer-icons li:last-of-type {
-  margin-right: 0;
-}
 
-.social-footer .social-footer-icons .fa {
-  font-size: 1.3rem;
-  color: #fefefe;
-}
-
-.social-footer .social-footer-icons .fa:hover {
-  color: #4a4a4a;
-  transition: color 0.3s ease-in;
-}
 
 
 .subnav-hero-section {
@@ -197,6 +191,6 @@ width:50%;}
 }
 
 .subnav-hero-subnav li a:hover {
-  background: rgba(254, 254, 254, 0.15);
+  background:grey;
 }
 

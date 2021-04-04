@@ -19,7 +19,7 @@
 </head>
 
 <body>
-
+<div class="pageDiv">
 
 <header>
 
@@ -28,13 +28,14 @@
 </header>
 
 
+<div class="pageWrap">
 
 
 <c:forEach items="${model.blog}" var="item">
 <div class="blogDiv">
 
 
-	<h2>Blog Title</h2>
+	<h2 class="blogTitle">${item.getTitle()}</h2>
      <img class="blogPic" src="${item.getImageLink()}" alt="blog1Pic">
      <p>${item.getBlogText()}</p>
 
@@ -46,9 +47,11 @@
 
 
 
+</div>
 <footer>
 <jsp:include page="footer.jsp"/>
 </footer>
+</div>
 </body>
 
 </html>

@@ -18,7 +18,7 @@
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
         
         <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/style.css"/>
-    <script type="text/javascript" src="script/script.js"></script>
+
 </head>
 
 <body>

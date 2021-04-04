@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.arrive.entities.CheckIn;
 
+import jpa.entitymodels.Student;
+
 public class CheckInServices extends AbstractDao implements CheckInI {
 
 	
@@ -31,6 +33,24 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 		}
 
 
+		@Override
+		public CheckIn getCheckInById(int id) {
+			CheckIn result = null;
+
+			try {
+				connect();
+				result = em.find(CheckIn.class, id);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				dispose();
+			}
+			return result;
+		}
+		
+		
+		
 
 		@Override
 		public List<CheckIn> getAllCheckIns() {
@@ -40,6 +60,10 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 			
 			return employeeList;
 		}
+		
+		
+		
+
 
 	}
 

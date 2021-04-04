@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/style.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    <script type="text/javascript" src="script/script.js"></script>
+
 </head>
 
 <body>
@@ -32,10 +32,11 @@
 
 
 
-    <h3>?date? Details</h3>
-    <span>You were doing:</span>
-    <h4>You felt:</h4>
-    <p>LORUM IMPSUM</p>
+
+
+    <h3> ${model.getDate()} Details</h3>
+    <span>You were doing: ${model.getFeelValue()}</span>
+    <h4>You felt:  ${model.getCheckInText()} </h4>
 
     <button>edit</button>
     <button>delete</button>

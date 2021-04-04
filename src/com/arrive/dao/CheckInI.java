@@ -9,7 +9,7 @@ public interface CheckInI {
 
 	public int addCheckIn(CheckIn checkIn);
 	public List<CheckIn> getAllCheckIns();
-			
+	public CheckIn getCheckInById(int id);		
 		
 
 

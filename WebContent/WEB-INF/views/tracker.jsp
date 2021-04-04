@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/style.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    <script type="text/javascript" src="script/script.js"></script>
+
 </head>
 
 <body>
@@ -45,7 +45,7 @@
 <h4>Snapshot Details:</h4>
 
 <c:forEach items="${model.checkIn}" var="item">
-    <p>On ${item.getDate()}, you felt:<a href="details">${item.getFeelValue()}</a></p>
+    <p>On ${item.getDate()}, you felt:<a href="checkIn/details/${item.getId()}">${item.getFeelValue()}</a></p>
   </c:forEach>
 
 

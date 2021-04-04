@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -49,6 +50,31 @@ public class CheckInController {
 		checkInServices.addCheckIn(checkIn);
 		return new ModelAndView("redirect:/tracker");
 		
+		
+	
+	
+	
+	
+		
+	}
+	
+	
+	@RequestMapping(value="/details/{checkInId}", method=RequestMethod.GET)
+	public ModelAndView createCheckInGetHandler(@PathVariable int checkInId) {
+		System.out.println("THIS IS THE GET HANDLER");
+		
+		
+		CheckInServices checkInServices = new CheckInServices();
+		CheckIn checkIn =checkInServices.getCheckInById(checkInId);
+		ModelAndView mav = new ModelAndView("details", "model",checkIn);
+		System.out.println(checkIn.getFeelValue());
+		return mav;
+		
+		
+	
+	
+	
+	
 		
 	}
 	

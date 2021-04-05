@@ -130,7 +130,6 @@ public class CheckInController {
 		CheckInServices checkInServices = new CheckInServices();
 		CheckIn checkIn =checkInServices.getCheckInById(checkInId);
 		ModelAndView mav = new ModelAndView("details", "model",checkIn);
-		System.out.println(checkIn.getFeelValue());
 		return mav;
 		
 		

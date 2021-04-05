@@ -15,9 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.arrive.dao.BlogResourceServices;
 import com.arrive.dao.CheckInServices;
+import com.arrive.dao.UserServices;
 import com.arrive.entities.Blog;
 import com.arrive.entities.CheckIn;
 import com.arrive.entities.Resource;
+import com.arrive.entities.User;
 
 
 
@@ -27,6 +29,7 @@ public class MainController {
 	
 	static BlogResourceServices blogResourceServices = new BlogResourceServices();
 	static CheckInServices checkInServices = new CheckInServices();
+	static UserServices userServices = new UserServices();
 	//handlers
 	
 	@RequestMapping(value={"/", "/index"})  // "/" ==> this is the root or home page
@@ -54,7 +57,9 @@ public class MainController {
 	
 	@RequestMapping("/profile")  // this is from href value
 	public ModelAndView profileHandler() {
-		ModelAndView mav = new ModelAndView("profile");
+		User user =userServices.getUserById(1);
+		
+		ModelAndView mav = new ModelAndView("profile", "model", user);
 		return mav; // view file name profile.jsp
 	}
 	

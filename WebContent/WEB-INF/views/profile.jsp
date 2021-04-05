@@ -38,12 +38,10 @@
 
     <div id="profileBody">
         <h4>Here are your account details</h4>
-        <p>Name:</p>
-        <p>Email:<p>
-        <p>Total Check Ins:</p>
-        <br>
-        <br>
-        <p>Delete Account</p>
+        <p><b>First Name:</b> ${model.getFirstName()}</p>
+         <p><b>Last Name:</b> ${model.getLastName()}</p>
+        <p><b>Email:</b> ${model.getEmail()}</p>
+        
 
 
 

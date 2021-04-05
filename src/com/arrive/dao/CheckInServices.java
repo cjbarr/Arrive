@@ -3,6 +3,7 @@ package com.arrive.dao;
 import java.util.List;
 
 import com.arrive.entities.CheckIn;
+import com.week9WebAppSetup.entities.Employee;
 
 import jpa.entitymodels.Student;
 
@@ -87,6 +88,25 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 		
 		
 
+		@Override
+		public int updateCheckInById(Integer id, CheckIn checkIn) {
+			try {
+				connect();
+				em.getTransaction().begin();
+				CheckIn updateCheck = em.find(CheckIn.class, id);
+				updateCheck.setFeelValue(checkIn.getFeelValue());
+				updateCheck.setCheckInText(checkIn.getCheckInText());
+				updateCheck.setDate(checkIn.getDate());
+				em.getTransaction().commit();
+
+			}catch(Exception e) {
+
+			} finally {
+				dispose();			
+			}
+
+			return 0;
+		}
 
 	}
 

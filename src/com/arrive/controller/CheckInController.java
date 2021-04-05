@@ -64,20 +64,20 @@ public class CheckInController {
 		System.out.println("THIS IS THE POST HANDLER");
 	
 		CheckInServices checkInServices = new CheckInServices();
-		CheckIn checkInToUpdate = checkInServices.getCheckInById(Integer.parseInt(request.getParameter("id")));
-//		checkInToUpdate.setFeelValue(request.getParameter("checkInValue"));
-//		checkInToUpdate.setCheckInText(request.getParameter("description"));
-//		checkInToUpdate.setDate(request.getParameter("checkInDate"));
-//		
-		
-	System.out.println(checkInToUpdate);
-		System.out.println(checkInToUpdate.getCheckInText());
-		System.out.println("This is what I'm trying to update");
-		System.out.println(request.getParameter("description"));
+		CheckIn checkInToUpdate = new CheckIn();
+		checkInToUpdate.setFeelValue(request.getParameter("checkInValue"));
 		checkInToUpdate.setCheckInText(request.getParameter("description"));
-
-		System.out.println(checkInToUpdate.getCheckInText());
-		
+		checkInToUpdate.setDate(request.getParameter("checkInDate"));
+	
+		checkInServices.updateCheckInById(Integer.parseInt(request.getParameter("id")), checkInToUpdate);
+//	System.out.println(checkInToUpdate);
+//		System.out.println(checkInToUpdate.getCheckInText());
+//		System.out.println("This is what I'm trying to update");
+//		System.out.println(request.getParameter("description"));
+//		checkInToUpdate.setCheckInText(request.getParameter("description"));
+//
+//		System.out.println(checkInToUpdate.getCheckInText());
+//		
 
 	
 		return new ModelAndView("redirect:/tracker");

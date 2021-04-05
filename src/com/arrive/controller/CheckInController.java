@@ -1,5 +1,8 @@
 package com.arrive.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,22 +33,17 @@ public class CheckInController {
 		System.out.println("THIS IS THE POST HANDLER");
 
 		
-
-
-		
-
-		
 		CheckIn checkIn = new CheckIn();
 		checkIn.setFeelValue(request.getParameter("checkInValue"));
 		checkIn.setCheckInText(request.getParameter("description"));
-		checkIn.setDate(request.getParameter("checkInDate"));
-		
-		
-	
-		System.out.println(checkIn);
-		
-		
-		
+		LocalDate date = java.time.LocalDate.now();
+
+		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+	    String formattedDate = date.format(myFormatObj);
+	    
+		checkIn.setDate(formattedDate);
+
 		CheckInServices checkInServices = new CheckInServices();
 		checkInServices.addCheckIn(checkIn);
 		return new ModelAndView("redirect:/tracker");
@@ -67,19 +65,7 @@ public class CheckInController {
 		CheckIn checkInToUpdate = new CheckIn();
 		checkInToUpdate.setFeelValue(request.getParameter("checkInValue"));
 		checkInToUpdate.setCheckInText(request.getParameter("description"));
-		checkInToUpdate.setDate(request.getParameter("checkInDate"));
-	
 		checkInServices.updateCheckInById(Integer.parseInt(request.getParameter("id")), checkInToUpdate);
-//	System.out.println(checkInToUpdate);
-//		System.out.println(checkInToUpdate.getCheckInText());
-//		System.out.println("This is what I'm trying to update");
-//		System.out.println(request.getParameter("description"));
-//		checkInToUpdate.setCheckInText(request.getParameter("description"));
-//
-//		System.out.println(checkInToUpdate.getCheckInText());
-//		
-
-	
 		return new ModelAndView("redirect:/tracker");
 		
 		

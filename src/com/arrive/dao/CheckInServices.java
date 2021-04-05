@@ -3,9 +3,7 @@ package com.arrive.dao;
 import java.util.List;
 
 import com.arrive.entities.CheckIn;
-import com.week9WebAppSetup.entities.Employee;
 
-import jpa.entitymodels.Student;
 
 public class CheckInServices extends AbstractDao implements CheckInI {
 
@@ -14,7 +12,13 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 		@Override
 		public int addCheckIn(CheckIn checkIn) {
 			int row = 0;
-
+			System.out.println("in add");
+			System.out.println(checkIn);
+			
+			System.out.println(checkIn.getCheckInText());
+			System.out.println(checkIn.getFeelValue());
+			System.out.println(checkIn.getDate());
+			
 			//1. connect ==> create entityManagerFactory & entityManager
 			//2. execute
 			//3. close
@@ -25,6 +29,8 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 				em.getTransaction().commit();
 				row = 1;
 			}catch(Exception e) {
+				System.out.println("WHY");
+				e.printStackTrace();
 				row =0;
 			} finally {
 				dispose();			
@@ -96,7 +102,6 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 				CheckIn updateCheck = em.find(CheckIn.class, id);
 				updateCheck.setFeelValue(checkIn.getFeelValue());
 				updateCheck.setCheckInText(checkIn.getCheckInText());
-				updateCheck.setDate(checkIn.getDate());
 				em.getTransaction().commit();
 
 			}catch(Exception e) {

@@ -37,19 +37,18 @@
 
 			<form action= "checkIn/addCheckIn" method="POST">
 			
-				<label for="date">Today's date:</label>
-				<input id="date" name="checkInDate">
+				<h4>Today's date: <%= java.time.LocalDate.now()%></h4>
 				<br>
                 <input type="radio" id="bad" name="checkInValue" value="Bad">
-                <label for="bad"><img class="face" src="<%=request.getContextPath()%>/resources/images/bad.png" alt="bad"> Bad</label>
+                <label for="bad"><img class="face" src="<%=request.getContextPath()%>/resources/images/Bad.png" alt="bad"> Bad</label>
                 <input type="radio" id="notGood" name="checkInValue" value="NotGood">
-                <label for="notGood"><img class="face" src="<%=request.getContextPath()%>/resources/images/notgood.png" alt="not good"> Not Good</label>
+                <label for="notGood"><img class="face" src="<%=request.getContextPath()%>/resources/images/NotGood.png" alt="not good"> Not Good</label>
                 <input type="radio" id="neutral" name="checkInValue" value="Neutral">
-                <label for="neutral"><img class="face" src="<%=request.getContextPath()%>/resources/images/neutral.png" alt="neutral"> Neutral</label>
+                <label for="neutral"><img class="face" src="<%=request.getContextPath()%>/resources/images/Neutral.png" alt="neutral"> Neutral</label>
                 <input type="radio" id="okay" name="checkInValue" value="Okay">
-                <label for="okay"><img class="face" src="<%=request.getContextPath()%>/resources/images/fair.png" alt="okay"> Okay</label>
+                <label for="okay"><img class="face" src="<%=request.getContextPath()%>/resources/images/Okay.png" alt="okay"> Okay</label>
                 <input type="radio" id="great" name="checkInValue" value="Great">
-                <label for="great"><img class="face" src="<%=request.getContextPath()%>/resources/images/good.png" alt="great"> Great</label>
+                <label for="great"><img class="face" src="<%=request.getContextPath()%>/resources/images/Great.png" alt="great"> Great</label>
 	
 
    

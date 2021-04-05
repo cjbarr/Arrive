@@ -33,9 +33,10 @@
 
 
 
-
+<div class="detailsDiv">
     <h3> ${model.getDate()} Details</h3>
-    <span>You were doing: ${model.getFeelValue()}</span>
+    <p>You were doing: ${model.getFeelValue()}</p>
+    <img src="<%=request.getContextPath()%>/resources/images/${model.getFeelValue()}.png">
     <h4>You felt:  ${model.getCheckInText()} </h4>
 	
 	   
@@ -44,17 +45,16 @@
    <input type="submit" name="edit" value="Edit this Check In">
     </form> 
 	   
-	   
+	   <br>
 	   
 	<form action= "deleteCheckIn/${model.getId()}" method="POST">
 
    <input type="submit" name="delete" value="Delete this Check In">
     </form>
-
+</div>
 
 
     <div>
-        <h4></h4>
     </div>
 
 </div>

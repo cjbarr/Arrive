@@ -29,7 +29,11 @@ margin-left:auto;
 margin-right:auto;}
 
 
-
+.detailsDiv{
+	text-align:center;
+	justify-content:center;
+	display:flex-box;
+}
 .face{width:3vw;}
 
 #footerText{color:white;

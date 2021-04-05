@@ -37,13 +37,10 @@ public class CheckInController {
 		checkIn.setFeelValue(request.getParameter("checkInValue"));
 		checkIn.setCheckInText(request.getParameter("description"));
 		LocalDate date = java.time.LocalDate.now();
-
 		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
 	    String formattedDate = date.format(myFormatObj);
-	    
 		checkIn.setDate(formattedDate);
-
+		checkIn.setUserId(1);
 		CheckInServices checkInServices = new CheckInServices();
 		checkInServices.addCheckIn(checkIn);
 		return new ModelAndView("redirect:/tracker");

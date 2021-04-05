@@ -11,14 +11,7 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 
 		@Override
 		public int addCheckIn(CheckIn checkIn) {
-			int row = 0;
-			System.out.println("in add");
-			System.out.println(checkIn);
-			
-			System.out.println(checkIn.getCheckInText());
-			System.out.println(checkIn.getFeelValue());
-			System.out.println(checkIn.getDate());
-			
+			int row = 0;	
 			//1. connect ==> create entityManagerFactory & entityManager
 			//2. execute
 			//3. close
@@ -85,7 +78,7 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 		@Override
 		public List<CheckIn> getAllCheckIns() {
 			connect();
-			List<CheckIn> employeeList = em.createQuery("SELECT e FROM CheckIn e",CheckIn.class).getResultList();
+			List<CheckIn> employeeList = em.createQuery("SELECT e FROM CheckIn e WHERE e.userId=:userId",CheckIn.class).setParameter("userId", 1).getResultList();
 			dispose();
 			
 			return employeeList;

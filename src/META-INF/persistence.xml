@@ -6,6 +6,7 @@
 	<class>com.arrive.entities.Blog</class>
 		<class>com.arrive.entities.Resource</class>
 		<class>com.arrive.entities.CheckIn</class>
+		<class>com.arrive.entities.User</class>
 	<!-- DB connection settings -->
 	
 	<!-- JPA/eclipseLink settings-->

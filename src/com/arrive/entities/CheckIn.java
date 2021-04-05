@@ -14,6 +14,7 @@ import javax.persistence.Table;
 public class CheckIn {
 @Id
 int id;
+int userId;
 String date;
 String feelValue;
 String checkInText;
@@ -22,9 +23,10 @@ public CheckIn() {
 	super();
 }
 
-public CheckIn(int id, String date, String feelValue, String checkInText) {
+public CheckIn(int id, int userId, String date, String feelValue, String checkInText) {
 	super();
 	this.id = id;
+	this.userId = userId;
 	this.date = date;
 	this.feelValue = feelValue;
 	this.checkInText = checkInText;
@@ -36,6 +38,14 @@ public int getId() {
 
 public void setId(int id) {
 	this.id = id;
+}
+
+public int getUserId() {
+	return userId;
+}
+
+public void setUserId(int userId) {
+	this.userId = userId;
 }
 
 public String getDate() {
@@ -61,6 +71,7 @@ public String getCheckInText() {
 public void setCheckInText(String checkInText) {
 	this.checkInText = checkInText;
 }
+
 
 
 

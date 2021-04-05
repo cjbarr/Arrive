@@ -40,7 +40,6 @@
         <h4>Here are your account details</h4>
         <p>Name:</p>
         <p>Email:<p>
-        <p>Last Check In:</p>
         <p>Total Check Ins:</p>
         <br>
         <br>

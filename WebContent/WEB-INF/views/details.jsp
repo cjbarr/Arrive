@@ -35,9 +35,10 @@
 
 <div class="detailsDiv">
     <h3> ${model.getDate()} Details</h3>
-    <p>You were doing: ${model.getFeelValue()}</p>
+    <p>You were doing: <b>${model.getFeelValue()}</b></p>
     <img src="<%=request.getContextPath()%>/resources/images/${model.getFeelValue()}.png">
-    <h4>You felt:  ${model.getCheckInText()} </h4>
+    <h4>You felt:</h4>
+    <p>${model.getCheckInText()}</p>
 	
 	   
 	  <form action= "editCheckIn/${model.getId()}" method="GET">

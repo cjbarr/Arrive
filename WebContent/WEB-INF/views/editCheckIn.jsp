@@ -41,8 +41,8 @@
 				<br>
                 <input type="radio" id="bad" name="checkInValue" value="Bad">
                 <label for="bad"><img class="face" src="<%=request.getContextPath()%>/resources/images/Bad.png" alt="bad"> Bad</label>
-                <input type="radio" id="notGood" name="checkInValue" value="NotGood">
-                <label for="notGood"><img class="face" src="<%=request.getContextPath()%>/resources/images/NotGood.png" alt="not good"> Not Good</label>
+                <input type="radio" id="poor" name="checkInValue" value="Poor">
+                <label for="notGood"><img class="face" src="<%=request.getContextPath()%>/resources/images/NotGood.png" alt="poor"> Poor</label>
                 <input type="radio" id="neutral" name="checkInValue" value="Neutral">
                 <label for="neutral"><img class="face" src="<%=request.getContextPath()%>/resources/images/Neutral.png" alt="neutral"> Neutral</label>
                 <input type="radio" id="okay" name="checkInValue" value="Okay">

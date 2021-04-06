@@ -94,9 +94,16 @@ public class MainController {
 		return "redirect:/index"; // view file name profile.jsp
 	}
 //	
+	
 	@RequestMapping("/logIn")  // this is from href value
-	public String logInHandler(HttpServletRequest request) {
-		request.getSession().setAttribute("loggedInUser", 1);
+	public ModelAndView logInHandler() {
+		ModelAndView mav = new ModelAndView("logIn");
+		return mav; // view file name details.jsp
+	}
+	@RequestMapping("/logInAttempt")  // this is from href value
+	public String logInAttempt(HttpServletRequest request) {
+		int userId = userServices.getUserByEmail(request.getParameter("email"));
+		request.getSession().setAttribute("loggedInUser", userId);
 	
 		return "redirect:/tracker"; // view file name profile.jsp
 	}

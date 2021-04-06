@@ -17,6 +17,8 @@
         <li><a href="/arrive/tracker">Tracker</a></li>
         <li><a href="/arrive/profile" >Profile</a></li>
         <li><a href="/arrive/resources">Resources</a></li>
+        <li><a href="/arrive/logIn">Log In</a></li>
+        
     </ul>
 </header>
 </body>

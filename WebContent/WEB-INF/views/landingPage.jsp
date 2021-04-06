@@ -41,7 +41,9 @@
 			<br>
 			<input type="password" name="password" placeholder="Password">
 <br>
+	<div  id="landingButton">
    <input type="submit" name="logIn" value="Log In">
+   </div>
     </form> 
 </div>
 

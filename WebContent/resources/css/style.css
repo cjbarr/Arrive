@@ -41,6 +41,10 @@ font-size:large;
 
 }
 
+#landingButton{
+	text-align:right;
+}
+
 #landingDiv{
 	
 	background-color:#1779ba;

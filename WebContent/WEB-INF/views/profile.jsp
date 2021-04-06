@@ -42,8 +42,7 @@
 
     <div id="profileBody">
     
-<h3 class="pageHeader">Profile</h3>
-        <h4>Here are your account details</h4>
+<h3 class="pageHeader">Profile Details</h3>
         <br>
         <br>
         <p><b>First Name:</b> ${model.getFirstName()}</p>

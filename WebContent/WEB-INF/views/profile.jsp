@@ -36,6 +36,10 @@
 
 
 
+
+
+
+
     <div id="profileBody">
         <h4>Here are your account details</h4>
         <p><b>First Name:</b> ${model.getFirstName()}</p>
@@ -50,10 +54,6 @@
    <input type="submit" name="logOut" value="Log Out">
     </form> 
     
-	  <form action= "logIn" method="GET">
-
-   <input type="submit" name="logIn" value="Log In">
-    </form> 
 
 
 

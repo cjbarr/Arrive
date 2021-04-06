@@ -37,7 +37,15 @@ public class MainController {
 	static UserServices userServices = new UserServices();
 	//handlers
 	
-	@RequestMapping(value={"/", "/index"})  // "/" ==> this is the root or home page
+	
+	@RequestMapping("/")  // this is from href value
+	public ModelAndView landingHandler() {
+		ModelAndView mav = new ModelAndView("landingPage");
+		return mav; // view file name details.jsp
+	}
+	
+	
+	@RequestMapping(value={"/index"})  // "/" ==> this is the root or home page
 	public ModelAndView indexHandler() {
 		
 		List<Blog> blogList = blogResourceServices.getAllBlogs();
@@ -49,8 +57,10 @@ public class MainController {
 
 
 	@RequestMapping("/checkIn")  // this is from href value
-	public ModelAndView checkInHandler() {
-		ModelAndView mav = new ModelAndView("checkIn");
+	public ModelAndView checkInHandler(HttpServletRequest request) {
+		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
+		User user =userServices.getUserById(loggedUser);
+		ModelAndView mav = new ModelAndView("checkIn", "model", user);
 		return mav; // view file name checkIn.jsp
 	}
 	
@@ -91,26 +101,27 @@ public class MainController {
 	@RequestMapping("/logOut")  // this is from href value
 	public String logOutHandler(HttpServletRequest request) {
 	  request.getSession().setAttribute("loggedInUser", 0);
-		return "redirect:/index"; // view file name profile.jsp
+		return "redirect:/"; // view file name profile.jsp
 	}
 //	
 	
-	@RequestMapping("/logIn")  // this is from href value
-	public ModelAndView logInHandler() {
-		ModelAndView mav = new ModelAndView("logIn");
-		return mav; // view file name details.jsp
-	}
+
 	@RequestMapping("/logInAttempt")  // this is from href value
 	public String logInAttempt(HttpServletRequest request) {
 		int userId = userServices.getUserByEmail(request.getParameter("email"));
 		request.getSession().setAttribute("loggedInUser", userId);
-	
-		return "redirect:/tracker"; // view file name profile.jsp
+	if(userId !=0) {
+		return "redirect:/index"; // view file name profile.jsp
+	}
+	else {
+		return "redirect:/";
 	}
 //	
 //	
 	
 	}
+	
+}
 	
 
 

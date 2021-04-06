@@ -23,36 +23,31 @@
 
 
 <body>
-<div class="pageDiv">
 
 
-<header>
 
-   <jsp:include page="header.jsp"/> 
-
-</header>
-
-<div class="pageWrap">
+<div id="landingDiv">
 
 
+
+<h1>Welcome to Arrive</h1>
 
 	  <form action= "logInAttempt" method="GET">
 	  
 	  
 		<label>Email</label> 	<input type="text" name="email"><br>
-	<label>Password</label> 		<input type="text" name="password">
+	<label>Password</label> 		<input type="password" name="password">
 
    <input type="submit" name="logIn" value="Log In">
     </form> 
 
 
 
-    </div>
+    
 
-</div>
-<footer>
-<jsp:include page="footer.jsp"/>
-</footer>
+
+
+
 </div>
 </body>
 

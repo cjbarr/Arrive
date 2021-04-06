@@ -41,7 +41,15 @@ font-size:large;
 
 }
 
-
+#landingDiv{
+	
+	background-color:#1779ba;
+	color:white;
+	justify-content:center;
+	align-content:center;
+	height:100vh;
+	width:100vw;
+}
 .logoPic{
 	max-width:40vw;
 	margin-left:auto;

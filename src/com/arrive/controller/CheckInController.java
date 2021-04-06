@@ -40,7 +40,7 @@ public class CheckInController {
 		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	    String formattedDate = date.format(myFormatObj);
 		checkIn.setDate(formattedDate);
-		checkIn.setUserId(1);
+		checkIn.setUserId((int) request.getSession().getAttribute("loggedInUser"));
 		CheckInServices checkInServices = new CheckInServices();
 		checkInServices.addCheckIn(checkIn);
 		return new ModelAndView("redirect:/tracker");

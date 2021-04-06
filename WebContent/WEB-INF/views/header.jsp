@@ -8,16 +8,16 @@
 </head>
 <body>
 	<header class="subnav-hero-section">
-    <h1 class="subnav-hero-headline">Arrive</h1>
+    <h1 class="subnav-hero-headline" onClick="window.location='/arrive'">Arrive</h1>
     <br></br>
     <h3><small>Show up for yourself</small></h3>
     <ul class="subnav-hero-subnav">
-        <li><a href="/arrive">Home</a></li>
+        <li><a href="/arrive/index">Home</a></li>
         <li><a href="/arrive/checkIn">Check In</a></li>
         <li><a href="/arrive/tracker">Tracker</a></li>
-        <li><a href="/arrive/profile" >Profile</a></li>
         <li><a href="/arrive/resources">Resources</a></li>
-        <li><a href="/arrive/logIn">Log In</a></li>
+        <li><a href="/arrive/profile" >Profile</a></li>
+
         
     </ul>
 </header>

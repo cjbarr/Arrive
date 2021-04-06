@@ -29,18 +29,21 @@
 <div id="landingDiv">
 
 
-
-<h1>Welcome to Arrive</h1>
+<div id="landingLog">
+<h1 id="welcome">Welcome to Arrive</h1>
+<br>
+<br>
 
 	  <form action= "logInAttempt" method="GET">
 	  
 	  
-		<label>Email</label> 	<input type="text" name="email"><br>
-	<label>Password</label> 		<input type="password" name="password">
-
+			<input type="text" name="email" placeholder="Email">
+			<br>
+			<input type="password" name="password" placeholder="Password">
+<br>
    <input type="submit" name="logIn" value="Log In">
     </form> 
-
+</div>
 
 
     

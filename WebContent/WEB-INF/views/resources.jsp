@@ -29,7 +29,7 @@
     
 
 <div class="pageWrap"> 
-    
+    <h3 class="pageHeader">Resources</h3>
     
     <c:forEach items="${model.resource}" var="item">
 <div class="resourceDiv">

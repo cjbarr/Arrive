@@ -37,7 +37,7 @@
 
 
 
-<h4>How are you feeling?</h4>
+<h3 class="pageHeader">How are you feeling?</h3>
 
 			<form action= "checkIn/addCheckIn" method="POST">
 			

@@ -91,12 +91,18 @@ width:25%;
 position:relative;
 min-height:100vh;}
 
+.pageHeader{
+	font-size:3rem;
+	text-align:center;
+}
+
 .pageWrap{padding-bottom:2.5rem;
 background:white;
 width:90vw;
 margin-left:auto;
 margin-right:auto;
 margin-top:2vh;
+padding-top:1rem;
 }
 
 .pixel-Bad{width:5vw;

@@ -33,7 +33,8 @@
 <div class="pageWrap">
 <div class="checkInDiv">
 
-<h4>How are you feeling?</h4>
+
+<h3 class="pageHeader">How are you feeling?</h3>
 
 			<form action= "edit" method="POST">
 		 <input name="id" value="${model.getId()}" type="hidden" />

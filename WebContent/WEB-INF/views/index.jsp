@@ -31,6 +31,7 @@
 <div class="pageWrap">
 
 
+<h3 class="pageHeader">The Arrive Blog</h3>
 <c:forEach items="${model.blog}" var="item">
 <div class="blogDiv">
 

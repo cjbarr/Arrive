@@ -26,12 +26,14 @@
 
 </header>
 
+
 <div class="pageWrap">
 
+<h3 class="pageHeader">Here's your Arrive snapshot:</h3>
 
 
 
-<h3>Here's your visual snapshot:</h3>
+
 
 <div class="pixelDisplay">
 <c:forEach items="${model.checkIn}" var="pixel">

@@ -41,6 +41,8 @@
 
 
     <div id="profileBody">
+    
+<h3 class="pageHeader">Profile</h3>
         <h4>Here are your account details</h4>
         <br>
         <br>
@@ -49,8 +51,8 @@
         <p><b>Email:</b> ${model.getEmail()}</p>
              <br>
                   <br>
-                       <br>
-                            <br>
+                       
+                            
         
         
   

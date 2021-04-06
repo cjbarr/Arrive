@@ -151,13 +151,20 @@ margin-right:auto;
 }
 
 #profileBody{
-width:50vw;
-height:30vh;
+width:45vh;
+height:45vh;
+border-radius:50%;
 background-color:white;
 text-align:center;
 position: absolute;
 left: 50%;
-top: 40%;
+top: 50%;
+transform: translate(-50%, -50%);
+}
+
+#profileText{position: absolute;
+left: 50%;
+top: 50%;
 transform: translate(-50%, -50%);}
 
 .resourceDiv{

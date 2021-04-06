@@ -42,14 +42,14 @@
 
     <div id="profileBody">
     
-<h3 class="pageHeader">Profile Details</h3>
-        <br>
-        <br>
+
+		<div id="profileText">
+		<h3>Profile Details</h3>
         <p><b>First Name:</b> ${model.getFirstName()}</p>
          <p><b>Last Name:</b> ${model.getLastName()}</p>
         <p><b>Email:</b> ${model.getEmail()}</p>
              <br>
-                  <br>
+
                        
                             
         
@@ -59,7 +59,7 @@
 
    <input type="submit" name="logOut" value="Log Out">
     </form> 
-    
+    </div>
 
 
 

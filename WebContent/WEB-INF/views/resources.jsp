@@ -36,22 +36,16 @@
 
     <img class="logoPic"  src="${item.getLogoPic()}" alt="Pic">
     <br>
-    <h3>${item.getName()}</h3>
     <br>
      <span>${item.getDescription()}</span>
      <br>
-     <a href="${item.getWeb()}">${item.getName()}</a>
+     <br>
+          <a href="${item.getWeb()}">Website</a>
+          
 </div>
-<br>
       </c:forEach>
       
-        <li>http://www.mhresources.org/</li>
-        <li>https://www.samhsa.gov/find-help/national-helpline</li>
-        <li>https://namimn.org/support/resources/general-mental-health-resources/</li>
-        <li>https://mentalhealthmn.org/support/community-resources/statewide-mental-health-resources/</li>
-
-   
-
+       
 </div>
 <footer>
 <jsp:include page="footer.jsp"/>

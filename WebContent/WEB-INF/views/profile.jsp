@@ -42,7 +42,18 @@
          <p><b>Last Name:</b> ${model.getLastName()}</p>
         <p><b>Email:</b> ${model.getEmail()}</p>
         
+        
+        
+  
+	  <form action= "logOut" method="GET">
 
+   <input type="submit" name="logOut" value="Log Out">
+    </form> 
+    
+	  <form action= "logIn" method="GET">
+
+   <input type="submit" name="logIn" value="Log In">
+    </form> 
 
 
 

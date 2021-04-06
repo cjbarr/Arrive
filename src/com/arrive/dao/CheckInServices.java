@@ -76,9 +76,9 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 		
 
 		@Override
-		public List<CheckIn> getAllCheckIns() {
+		public List<CheckIn> getCheckInsByUserId(int idParam) {
 			connect();
-			List<CheckIn> employeeList = em.createQuery("SELECT e FROM CheckIn e WHERE e.userId=:userId ORDER BY e.id DESC",CheckIn.class).setParameter("userId", 1).getResultList();
+			List<CheckIn> employeeList = em.createQuery("SELECT e FROM CheckIn e WHERE e.userId=:userId ORDER BY e.id DESC",CheckIn.class).setParameter("userId", idParam).getResultList();
 			dispose();
 			
 			return employeeList;

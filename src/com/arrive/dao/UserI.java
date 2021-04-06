@@ -9,6 +9,8 @@ public interface UserI {
 
 	public User getUserById(int id);
 
+	public int getUserByEmail(String email);
+
 
 	
 

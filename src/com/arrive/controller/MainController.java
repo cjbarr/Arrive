@@ -6,7 +6,11 @@ import java.util.Map;
 //
 //import javax.servlet.http.HttpServletRequest;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -25,6 +29,7 @@ import com.arrive.entities.User;
 
 @Controller
 @RequestMapping("/")
+@SessionAttributes("loggedUser")
 public class MainController {
 	
 	static BlogResourceServices blogResourceServices = new BlogResourceServices();
@@ -56,8 +61,9 @@ public class MainController {
 	}
 	
 	@RequestMapping("/profile")  // this is from href value
-	public ModelAndView profileHandler() {
-		User user =userServices.getUserById(1);
+	public ModelAndView profileHandler(HttpServletRequest request) {
+		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
+		User user =userServices.getUserById(loggedUser);
 		
 		ModelAndView mav = new ModelAndView("profile", "model", user);
 		return mav; // view file name profile.jsp
@@ -73,15 +79,30 @@ public class MainController {
 	}
 	
 	@RequestMapping("/tracker")  // this is from href value
-	public ModelAndView trackerHandler() {
-		List<CheckIn> checkInList = checkInServices.getAllCheckIns();
+	public ModelAndView trackerHandler(HttpServletRequest request) {
+		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
+		List<CheckIn> checkInList = checkInServices.getCheckInsByUserId(loggedUser);
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("checkIn", checkInList);
 		ModelAndView mav = new ModelAndView("tracker", "model", model);
 		return mav; // view file name tracker.jsp
 	}
 	
-
+	@RequestMapping("/logOut")  // this is from href value
+	public String logOutHandler(HttpServletRequest request) {
+	  request.getSession().setAttribute("loggedInUser", 0);
+		return "redirect:/index"; // view file name profile.jsp
+	}
+//	
+	@RequestMapping("/logIn")  // this is from href value
+	public String logInHandler(HttpServletRequest request) {
+		request.getSession().setAttribute("loggedInUser", 1);
+	
+		return "redirect:/tracker"; // view file name profile.jsp
+	}
+//	
+//	
+	
 	}
 	
 

@@ -163,7 +163,8 @@ width:50%;}
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 300px;
+  height: 20vh;
+  min-height:200px;
 }
 
 .subnav-hero-section .subnav-hero-headline {

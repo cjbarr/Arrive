@@ -32,7 +32,7 @@
 
 </header>
 
-<div class="pageWrap">
+
 
 
 
@@ -42,10 +42,15 @@
 
     <div id="profileBody">
         <h4>Here are your account details</h4>
+        <br>
+        <br>
         <p><b>First Name:</b> ${model.getFirstName()}</p>
          <p><b>Last Name:</b> ${model.getLastName()}</p>
         <p><b>Email:</b> ${model.getEmail()}</p>
-        
+             <br>
+                  <br>
+                       <br>
+                            <br>
         
         
   
@@ -59,7 +64,7 @@
 
     </div>
 
-</div>
+
 <footer>
 <jsp:include page="footer.jsp"/>
 </footer>

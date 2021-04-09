@@ -45,6 +45,22 @@ public class MainController {
 	}
 	
 	
+	@RequestMapping("/blogPost")  // "/" ==> this is the root or home page
+	public String blogPostHandler(HttpServletRequest request) {
+		Blog newBlog = new Blog();
+		newBlog.setBlogText(request.getParameter("blogText"));
+		newBlog.setImageLink(request.getParameter("bPicUrl"));
+		newBlog.setTitle(request.getParameter("blogTitle"));
+		blogResourceServices.addBlog(newBlog);
+		
+
+		return "redirect:/index"; // view file name index.jsp
+	}
+
+	
+	
+	
+	
 	@RequestMapping(value={"/index"})  // "/" ==> this is the root or home page
 	public ModelAndView indexHandler(HttpServletRequest request) {
 		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");

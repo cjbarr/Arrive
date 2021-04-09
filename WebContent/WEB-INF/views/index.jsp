@@ -30,15 +30,27 @@
 
 <div class="pageWrap">
 
+<h3 class="pageHeader">The Arrive Blog</h3>
+
 <c:if  test="${model.user.admin ==true}" >
 <div>
-<p>This is admin level<p>
-</div>
+  <form action ="blogPost" method="POST">
+  <label for="blogTitle">Blog Title:</label>
+               <input name ="blogTitle" type="text">
+                 <label for="bPicUrl">Blog Pic Url:</label>
+               <input name = "bPicUrl" type="text">
+                 <label for="blogText">Blog Text:</label>
+      <textarea id="blogText" name="blogText"></textarea>
 
+      <input type="submit" name="update" value="Post Blog">             
+    </form>    
+        
+</div>
+<br>
 </c:if>
 
 
-<h3 class="pageHeader">The Arrive Blog</h3>
+
 <c:forEach items="${model.blog}" var="item">
 <div class="blogDiv">
 

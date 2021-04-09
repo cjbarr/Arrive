@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,6 +48,15 @@
         <p><b>First Name:</b> ${model.getFirstName()}</p>
          <p><b>Last Name:</b> ${model.getLastName()}</p>
         <p><b>Email:</b> ${model.getEmail()}</p>
+        <p><b>Visual Preference:</b> 
+      <c:if  test="${model.getPixelPref() =='box'}" >
+      Squares
+      </c:if>
+      <c:if  test="${model.getPixelPref() =='pixel'}" >
+      Circles
+      </c:if>
+        
+        </p>
 <br>
   
 	  <form action= "logOut" method="GET">

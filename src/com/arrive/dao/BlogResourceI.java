@@ -10,6 +10,6 @@ public interface BlogResourceI {
 
 		public List<Blog> getAllBlogs();	
 		public List<Resource> getAllResources();
-	
+		public int addBlog(Blog blog);
 
 }

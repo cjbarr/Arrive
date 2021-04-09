@@ -46,11 +46,13 @@ public class MainController {
 	
 	
 	@RequestMapping(value={"/index"})  // "/" ==> this is the root or home page
-	public ModelAndView indexHandler() {
-		
+	public ModelAndView indexHandler(HttpServletRequest request) {
+		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
+		User user =userServices.getUserById(loggedUser);
 		List<Blog> blogList = blogResourceServices.getAllBlogs();
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("blog", blogList);
+		model.put("user", user);
 		ModelAndView mav = new ModelAndView("index", "model",model);
 		return mav; // view file name index.jsp
 	}
@@ -69,6 +71,16 @@ public class MainController {
 		ModelAndView mav = new ModelAndView("details");
 		return mav; // view file name details.jsp
 	}
+	
+	@RequestMapping("/pixelUpdate")
+	public String pixelUpdateHandler(HttpServletRequest request) {
+		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
+		User user  =userServices.getUserById(loggedUser);
+		user.setPixelPref(request.getParameter("pixel"));
+		userServices.updatePixelPref(loggedUser, user);
+		return "redirect:/tracker";
+	}
+	
 	
 	@RequestMapping("/profile")  // this is from href value
 	public ModelAndView profileHandler(HttpServletRequest request) {
@@ -91,9 +103,11 @@ public class MainController {
 	@RequestMapping("/tracker")  // this is from href value
 	public ModelAndView trackerHandler(HttpServletRequest request) {
 		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
+		User user = userServices.getUserById(loggedUser);
 		List<CheckIn> checkInList = checkInServices.getCheckInsByUserId(loggedUser);
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("checkIn", checkInList);
+		model.put("user", user);
 		ModelAndView mav = new ModelAndView("tracker", "model", model);
 		return mav; // view file name tracker.jsp
 	}
@@ -108,7 +122,7 @@ public class MainController {
 
 	@RequestMapping("/logInAttempt")  // this is from href value
 	public String logInAttempt(HttpServletRequest request) {
-		int userId = userServices.getUserByEmail(request.getParameter("email"));
+		int userId = userServices.validateUser(request.getParameter("email"),request.getParameter("password"));
 		request.getSession().setAttribute("loggedInUser", userId);
 	if(userId !=0) {
 		return "redirect:/index"; // view file name profile.jsp

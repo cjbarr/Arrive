@@ -48,12 +48,7 @@
         <p><b>First Name:</b> ${model.getFirstName()}</p>
          <p><b>Last Name:</b> ${model.getLastName()}</p>
         <p><b>Email:</b> ${model.getEmail()}</p>
-             <br>
-
-                       
-                            
-        
-        
+<br>
   
 	  <form action= "logOut" method="GET">
 
@@ -66,9 +61,9 @@
     </div>
 
 
-<footer>
+
 <jsp:include page="footer.jsp"/>
-</footer>
+
 </div>
 </body>
 

@@ -30,6 +30,13 @@
 
 <div class="pageWrap">
 
+<c:if  test="${model.user.admin ==true}" >
+<div>
+<p>This is admin level<p>
+</div>
+
+</c:if>
+
 
 <h3 class="pageHeader">The Arrive Blog</h3>
 <c:forEach items="${model.blog}" var="item">
@@ -38,7 +45,7 @@
 
 	<h2 class="blogTitle">${item.getTitle()}</h2>
      <img class="blogPic" src="${item.getImageLink()}" alt="blog1Pic">
-     <p>${item.getBlogText()}</p>
+     <p style="background-color:white; padding:.5rem; font-weight:500">${item.getBlogText()}</p>
 
  </div>    
  <br>
@@ -49,9 +56,10 @@
 
 
 </div>
-<footer>
+
+
 <jsp:include page="footer.jsp"/>
-</footer>
+
 </div>
 </body>
 

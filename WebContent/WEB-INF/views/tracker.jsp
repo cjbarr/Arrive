@@ -29,16 +29,26 @@
 
 <div class="pageWrap">
 
-<h3 class="pageHeader">Here's your Arrive snapshot:</h3>
+<h3 class="pageHeader">Here's your Arrive snapshot:
+<br>
 
 
+<img class="face" src="<%=request.getContextPath()%>/resources/images/Bad.png" alt="bad">
+<img class="face" src="<%=request.getContextPath()%>/resources/images/Poor.png" alt="poor">
+
+<img class="face" src="<%=request.getContextPath()%>/resources/images/Neutral.png" alt="neutral">
+
+<img class="face" src="<%=request.getContextPath()%>/resources/images/Okay.png" alt="okay">
+
+<img class="face" src="<%=request.getContextPath()%>/resources/images/Great.png" alt="great">
+</h3>	
 
 
 
 <div class="pixelDisplay">
 <c:forEach items="${model.checkIn}" var="pixel">
 
-	<div class ="pixel-${pixel.getFeelValue()}" onClick="window.location='checkIn/details/${pixel.getId()}'">
+	<div class ="${model.user.getPixelPref()}-${pixel.getFeelValue()}" onClick="window.location='checkIn/details/${pixel.getId()}'">
 	
 
 </div>
@@ -50,10 +60,27 @@
 <div>
 <h4></h4>
     </div>
+    
+    <div style="width:15vw; margin-left:auto; margin-right:auto;">
+     <form action ="pixelUpdate" method="GET">
+               <label for="pixel">Check in Display:</label>
+
+<select name="pixel" id="pixel">
+<option value="box"></option>
+  <option value="pixel">Circles</option>
+  <option value="box">Squares</option>
+
+  
+ 
+</select>
+      <input type="submit" name="update" value="Update Preference">             
+    </form>    
+        
+  </div>
 </div>
-<footer>
+
 <jsp:include page="footer.jsp"/>
-</footer>
+
 </div>
 </body>
 

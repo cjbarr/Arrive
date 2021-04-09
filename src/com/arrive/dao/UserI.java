@@ -9,7 +9,9 @@ public interface UserI {
 
 	public User getUserById(int id);
 
-	public int getUserByEmail(String email);
+	public int validateUser(String email, String password);
+
+	public int updatePixelPref(int id, User user);
 
 
 	

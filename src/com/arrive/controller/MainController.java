@@ -24,6 +24,7 @@ import com.arrive.entities.Blog;
 import com.arrive.entities.CheckIn;
 import com.arrive.entities.Resource;
 import com.arrive.entities.User;
+import com.arrive.exceptions.CustomException;
 
 
 
@@ -46,7 +47,7 @@ public class MainController {
 	
 	
 	@RequestMapping("/blogPost")  // "/" ==> this is the root or home page
-	public String blogPostHandler(HttpServletRequest request) {
+	public String blogPostHandler(HttpServletRequest request) throws CustomException {
 		Blog newBlog = new Blog();
 		newBlog.setBlogText(request.getParameter("blogText"));
 		newBlog.setImageLink(request.getParameter("bPicUrl"));
@@ -62,7 +63,7 @@ public class MainController {
 	
 	
 	@RequestMapping(value={"/index"})  // "/" ==> this is the root or home page
-	public ModelAndView indexHandler(HttpServletRequest request) {
+	public ModelAndView indexHandler(HttpServletRequest request) throws CustomException {
 		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
 		User user =userServices.getUserById(loggedUser);
 		List<Blog> blogList = blogResourceServices.getAllBlogs();
@@ -75,7 +76,7 @@ public class MainController {
 
 
 	@RequestMapping("/checkIn")  // this is from href value
-	public ModelAndView checkInHandler(HttpServletRequest request) {
+	public ModelAndView checkInHandler(HttpServletRequest request) throws CustomException {
 		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
 		User user =userServices.getUserById(loggedUser);
 		ModelAndView mav = new ModelAndView("checkIn", "model", user);
@@ -89,7 +90,7 @@ public class MainController {
 	}
 	
 	@RequestMapping("/pixelUpdate")
-	public String pixelUpdateHandler(HttpServletRequest request) {
+	public String pixelUpdateHandler(HttpServletRequest request) throws CustomException {
 		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
 		User user  =userServices.getUserById(loggedUser);
 		user.setPixelPref(request.getParameter("pixel"));
@@ -99,7 +100,7 @@ public class MainController {
 	
 	
 	@RequestMapping("/profile")  // this is from href value
-	public ModelAndView profileHandler(HttpServletRequest request) {
+	public ModelAndView profileHandler(HttpServletRequest request) throws CustomException {
 		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
 		User user =userServices.getUserById(loggedUser);
 		
@@ -117,7 +118,7 @@ public class MainController {
 	}
 	
 	@RequestMapping("/tracker")  // this is from href value
-	public ModelAndView trackerHandler(HttpServletRequest request) {
+	public ModelAndView trackerHandler(HttpServletRequest request) throws CustomException {
 		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
 		User user = userServices.getUserById(loggedUser);
 		List<CheckIn> checkInList = checkInServices.getCheckInsByUserId(loggedUser);
@@ -137,7 +138,7 @@ public class MainController {
 	
 
 	@RequestMapping("/logInAttempt")  // this is from href value
-	public String logInAttempt(HttpServletRequest request) {
+	public String logInAttempt(HttpServletRequest request) throws CustomException {
 		int userId = userServices.validateUser(request.getParameter("email"),request.getParameter("password"));
 		request.getSession().setAttribute("loggedInUser", userId);
 	if(userId !=0) {

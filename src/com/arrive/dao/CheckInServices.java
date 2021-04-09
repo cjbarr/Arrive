@@ -3,6 +3,7 @@ package com.arrive.dao;
 import java.util.List;
 
 import com.arrive.entities.CheckIn;
+import com.arrive.exceptions.CustomException;
 
 
 public class CheckInServices extends AbstractDao implements CheckInI {
@@ -10,7 +11,7 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 	
 
 		@Override
-		public int addCheckIn(CheckIn checkIn) {
+		public int addCheckIn(CheckIn checkIn) throws CustomException {
 			int row = 0;	
 			//1. connect ==> create entityManagerFactory & entityManager
 			//2. execute
@@ -22,9 +23,7 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 				em.getTransaction().commit();
 				row = 1;
 			}catch(Exception e) {
-				System.out.println("WHY");
-				e.printStackTrace();
-				row =0;
+				throw new CustomException("Error in addCheckIn");
 			} finally {
 				dispose();			
 			}
@@ -34,7 +33,7 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 
 
 		@Override
-		public CheckIn getCheckInById(int id) {
+		public CheckIn getCheckInById(int id) throws CustomException {
 			CheckIn result = null;
 
 			try {
@@ -42,7 +41,7 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 				result = em.find(CheckIn.class, id);
 
 			} catch (Exception e) {
-				e.printStackTrace();
+				throw new CustomException("Error in dgetCheckInById");
 			} finally {
 				dispose();
 			}
@@ -52,7 +51,7 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 		
 		
 		@Override
-		public CheckIn deleteCheckInById(int id) {
+		public CheckIn deleteCheckInById(int id) throws CustomException {
 			CheckIn result = null;
 
 			try {
@@ -64,8 +63,9 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 				
 
 			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
+				throw new CustomException("Error in deleteCheckInById");
+			}
+			finally {
 				dispose();
 			}
 			return result;
@@ -88,7 +88,7 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 		
 
 		@Override
-		public int updateCheckInById(Integer id, CheckIn checkIn) {
+		public int updateCheckInById(Integer id, CheckIn checkIn) throws CustomException {
 			try {
 				connect();
 				em.getTransaction().begin();
@@ -98,7 +98,7 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 				em.getTransaction().commit();
 
 			}catch(Exception e) {
-
+				throw new CustomException("Error in updateCheckInById");
 			} finally {
 				dispose();			
 			}

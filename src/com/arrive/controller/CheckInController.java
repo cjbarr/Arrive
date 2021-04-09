@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.arrive.dao.CheckInServices;
 import com.arrive.entities.CheckIn;
+import com.arrive.exceptions.CustomException;
 
 
 
@@ -29,7 +30,7 @@ import com.arrive.entities.CheckIn;
 public class CheckInController {
 
 	@RequestMapping(value="/addCheckIn", method=RequestMethod.POST)
-	public ModelAndView createCheckInPostHandler(HttpServletRequest request) {
+	public ModelAndView createCheckInPostHandler(HttpServletRequest request) throws CustomException {
 		System.out.println("THIS IS THE POST HANDLER");
 
 		
@@ -55,7 +56,7 @@ public class CheckInController {
 	
 	
 	@RequestMapping(value="/details/editCheckIn/edit", method=RequestMethod.POST)
-	public ModelAndView createCheckInEditHandler(HttpServletRequest request) {
+	public ModelAndView createCheckInEditHandler(HttpServletRequest request) throws NumberFormatException, CustomException {
 		System.out.println("THIS IS THE POST HANDLER");
 	
 		CheckInServices checkInServices = new CheckInServices();
@@ -75,7 +76,7 @@ public class CheckInController {
 	
 	
 	@RequestMapping(value="/details/deleteCheckIn/{checkInId}", method=RequestMethod.POST)
-	public ModelAndView createCheckInDeleteHandler(@PathVariable int checkInId) {
+	public ModelAndView createCheckInDeleteHandler(@PathVariable int checkInId) throws CustomException {
 		System.out.println("THIS IS THE DELETE HANDLER");
 
 		
@@ -101,7 +102,7 @@ public class CheckInController {
 	
 	
 	@RequestMapping(value="/details/editCheckIn/{checkInId}", method=RequestMethod.GET)
-	public ModelAndView createCheckInEditHandler(@PathVariable int checkInId) {
+	public ModelAndView createCheckInEditHandler(@PathVariable int checkInId) throws CustomException {
 		System.out.println("THIS IS THE EDIT HANDLER");
 
 		
@@ -123,7 +124,7 @@ public class CheckInController {
 	
 	
 	@RequestMapping(value="/details/{checkInId}", method=RequestMethod.GET)
-	public ModelAndView createCheckInGetHandler(@PathVariable int checkInId) {
+	public ModelAndView createCheckInGetHandler(@PathVariable int checkInId) throws CustomException {
 		System.out.println("THIS IS THE GET HANDLER");
 		
 		

@@ -5,6 +5,7 @@ import java.util.List;
 import com.arrive.entities.Blog;
 import com.arrive.entities.CheckIn;
 import com.arrive.entities.Resource;
+import com.arrive.exceptions.CustomException;
 
 
 
@@ -32,7 +33,7 @@ public class BlogResourceServices extends AbstractDao implements BlogResourceI {
 	
 	
 	@Override
-	public int addBlog(Blog blog) {
+	public int addBlog(Blog blog) throws CustomException {
 		int row = 0;	
 		//1. connect ==> create entityManagerFactory & entityManager
 		//2. execute
@@ -44,9 +45,8 @@ public class BlogResourceServices extends AbstractDao implements BlogResourceI {
 			em.getTransaction().commit();
 			row = 1;
 		}catch(Exception e) {
-			System.out.println("WHY");
-			e.printStackTrace();
-			row =0;
+			throw new CustomException("Error in addBlog");
+
 		} finally {
 			dispose();			
 		}

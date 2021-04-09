@@ -5,6 +5,7 @@ package com.arrive.dao;
 
 import com.arrive.entities.CheckIn;
 import com.arrive.entities.User;
+import com.arrive.exceptions.CustomException;
 
 
 
@@ -12,7 +13,7 @@ import com.arrive.entities.User;
 public class UserServices extends AbstractDao implements UserI {
 	
 	@Override
-	public User getUserById(int id) {
+	public User getUserById(int id) throws CustomException {
 		User result = null;
 
 		try {
@@ -20,7 +21,7 @@ public class UserServices extends AbstractDao implements UserI {
 			result = em.find(User.class, id);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new CustomException("Error in getUserById");
 		} finally {
 			dispose();
 		}
@@ -32,7 +33,7 @@ public class UserServices extends AbstractDao implements UserI {
 	
 
 	@Override
-	public int validateUser(String email, String password) {
+	public int validateUser(String email, String password) throws CustomException {
 		int gotUser = 0;
 		try {
 			connect();
@@ -42,7 +43,7 @@ public class UserServices extends AbstractDao implements UserI {
 			
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new CustomException("Error in validateUser");
 		} finally {
 			dispose();
 		}
@@ -51,7 +52,7 @@ public class UserServices extends AbstractDao implements UserI {
 	
 
 	@Override
-	public int updatePixelPref(int id, User user) {
+	public int updatePixelPref(int id, User user) throws CustomException {
 		try {
 			connect();
 			em.getTransaction().begin();
@@ -60,7 +61,7 @@ public class UserServices extends AbstractDao implements UserI {
 			em.getTransaction().commit();
 
 		}catch(Exception e) {
-
+			throw new CustomException("Error in updatePixelPref");
 		} finally {
 			dispose();			
 		}

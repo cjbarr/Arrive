@@ -8,7 +8,7 @@
 </head>
 <body>
 	<header class="subnav-hero-section">
-    <h1 class="subnav-hero-headline" onClick="window.location='/arrive'">Arrive</h1>
+    <h1 class="subnav-hero-headline" style="font-size:4.5rem" onClick="window.location='/arrive'">Arrive</h1>
     <br></br>
     <h3><small>Show up for yourself</small></h3>
     <ul class="subnav-hero-subnav">

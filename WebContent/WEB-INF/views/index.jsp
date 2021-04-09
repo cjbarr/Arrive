@@ -30,7 +30,7 @@
 
 <div class="pageWrap">
 
-<h3 class="pageHeader">The Arrive Blog</h3>
+<h3 class="pageHeader" style="text-align:left; padding-bottom:1vh; ">The Arrive Blog</h3>
 
 <c:if  test="${model.user.admin ==true}" >
 <div>
@@ -52,13 +52,15 @@
 
 
 <c:forEach items="${model.blog}" var="item">
+
+<div class="blogColor">
 <div class="blogDiv">
 
 
 	<h2 class="blogTitle">${item.getTitle()}</h2>
      <img class="blogPic" src="${item.getImageLink()}" alt="blog1Pic">
      <p style="background-color:white; padding:.5rem; font-weight:500">${item.getBlogText()}</p>
-
+</div>
  </div>    
  <br>
        </c:forEach>

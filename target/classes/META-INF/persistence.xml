@@ -3,10 +3,10 @@
 	<persistence-unit name="arrivePersist">
 	
 	<!-- entities -->
-	<class>com.arrive.entities.Blog</class>
-		<class>com.arrive.entities.Resource</class>
-		<class>com.arrive.entities.CheckIn</class>
-		<class>com.arrive.entities.User</class>
+	<class>com.arrive.corey.barr.entities.Blog</class>
+		<class>com.arrive.corey.barr.entities.Resource</class>
+		<class>com.arrive.corey.barr.entities.CheckIn</class>
+		<class>com.arrive.corey.barr.entities.User</class>
 	<!-- DB connection settings -->
 	
 	<!-- JPA/eclipseLink settings-->

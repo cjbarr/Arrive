@@ -7,16 +7,10 @@ import java.util.Map;
 //import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.arrive.corey.barr.dao.BlogResourceServices;
 import com.arrive.corey.barr.dao.CheckInServices;
 import com.arrive.corey.barr.dao.UserServices;
@@ -25,6 +19,11 @@ import com.arrive.corey.barr.entities.CheckIn;
 import com.arrive.corey.barr.entities.Resource;
 import com.arrive.corey.barr.entities.User;
 import com.arrive.corey.barr.exceptions.CustomException;
+
+
+
+//This is the main controller. It handles all mapping with the exception of the check in CRUD
+//Check in Crud is handled in the checkIn Controller
 
 @Controller
 @RequestMapping("/")
@@ -36,10 +35,10 @@ public class MainController {
 	static UserServices userServices = new UserServices();
 	// handlers
 
-	@RequestMapping("/") // this is from href value
+	@RequestMapping("/") 
 	public ModelAndView landingHandler() {
 		ModelAndView mav = new ModelAndView("landingPage");
-		return mav; // view file name details.jsp
+		return mav; 
 	}
 
 	@RequestMapping("/blogPost") // "/" ==> this is the root or home page
@@ -50,10 +49,10 @@ public class MainController {
 		newBlog.setTitle(request.getParameter("blogTitle"));
 		blogResourceServices.addBlog(newBlog);
 
-		return "redirect:/index"; // view file name index.jsp
+		return "redirect:/index"; 
 	}
 
-	@RequestMapping(value = { "/index" }) // "/" ==> this is the root or home page
+	@RequestMapping(value = { "/index" })
 	public ModelAndView indexHandler(HttpServletRequest request) throws CustomException {
 		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
 		User user = userServices.getUserById(loggedUser);
@@ -62,10 +61,10 @@ public class MainController {
 		model.put("blog", blogList);
 		model.put("user", user);
 		ModelAndView mav = new ModelAndView("index", "model", model);
-		return mav; // view file name index.jsp
+		return mav; 
 	}
 
-	@RequestMapping("/checkIn") // this is from href value
+	@RequestMapping("/checkIn")
 	public ModelAndView checkInHandler(HttpServletRequest request) throws CustomException {
 		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
 		User user = userServices.getUserById(loggedUser);
@@ -73,10 +72,10 @@ public class MainController {
 		return mav; // view file name checkIn.jsp
 	}
 
-	@RequestMapping("/details") // this is from href value
+	@RequestMapping("/details") 
 	public ModelAndView detailsHandler() {
 		ModelAndView mav = new ModelAndView("details");
-		return mav; // view file name details.jsp
+		return mav; 
 	}
 
 	@RequestMapping("/pixelUpdate")
@@ -88,25 +87,25 @@ public class MainController {
 		return "redirect:/tracker";
 	}
 
-	@RequestMapping("/profile") // this is from href value
+	@RequestMapping("/profile") 
 	public ModelAndView profileHandler(HttpServletRequest request) throws CustomException {
 		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
 		User user = userServices.getUserById(loggedUser);
 
 		ModelAndView mav = new ModelAndView("profile", "model", user);
-		return mav; // view file name profile.jsp
+		return mav;
 	}
 
-	@RequestMapping("/resources") // this is from href value
+	@RequestMapping("/resources")
 	public ModelAndView resourcesHandler() {
 		List<Resource> resourceList = blogResourceServices.getAllResources();
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("resource", resourceList);
 		ModelAndView mav = new ModelAndView("resources", "model", model);
-		return mav; // view file name resources.jsp
+		return mav; 
 	}
 
-	@RequestMapping("/tracker") // this is from href value
+	@RequestMapping("/tracker") 
 	public ModelAndView trackerHandler(HttpServletRequest request) throws CustomException {
 		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
 		User user = userServices.getUserById(loggedUser);
@@ -115,21 +114,21 @@ public class MainController {
 		model.put("checkIn", checkInList);
 		model.put("user", user);
 		ModelAndView mav = new ModelAndView("tracker", "model", model);
-		return mav; // view file name tracker.jsp
+		return mav;
 	}
 
-	@RequestMapping("/logOut") // this is from href value
+	@RequestMapping("/logOut") 
 	public String logOutHandler(HttpServletRequest request) {
 		request.getSession().setAttribute("loggedInUser", 0);
-		return "redirect:/"; // view file name profile.jsp
+		return "redirect:/"; 
 	}
 
-	@RequestMapping("/logInAttempt") // this is from href value
+	@RequestMapping("/logInAttempt") 
 	public String logInAttempt(HttpServletRequest request) throws CustomException {
 		int userId = userServices.validateUser(request.getParameter("email"), request.getParameter("password"));
 		request.getSession().setAttribute("loggedInUser", userId);
 		if (userId != 0) {
-			return "redirect:/index"; // view file name profile.jsp
+			return "redirect:/index"; 
 		} else {
 			return "redirect:/";
 		}

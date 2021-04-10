@@ -5,6 +5,7 @@ import java.util.List;
 import com.arrive.corey.barr.entities.CheckIn;
 import com.arrive.corey.barr.exceptions.CustomException;
 
+//This is the CheckIn Interface, used for implementing the checkIn Methods
 public interface CheckInI {
 
 	public int addCheckIn(CheckIn checkIn) throws CustomException;

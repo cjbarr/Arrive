@@ -2,26 +2,20 @@ package com.arrive.corey.barr.controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttribute;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.arrive.corey.barr.dao.CheckInServices;
 import com.arrive.corey.barr.entities.CheckIn;
 import com.arrive.corey.barr.exceptions.CustomException;
 
+
+//Check in Crud is handled in the checkIn Controller
 @Controller
 @RequestMapping("/checkIn")
 public class CheckInController {

@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+//This is the blog entity object constructor and setters and getters
 @Entity
 @Table(name = "blog")
 public class Blog {

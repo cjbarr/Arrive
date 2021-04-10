@@ -7,8 +7,10 @@ import com.arrive.corey.barr.entities.CheckIn;
 import com.arrive.corey.barr.entities.Resource;
 import com.arrive.corey.barr.exceptions.CustomException;
 
+//The BlogResouceServices class contains all of the methods for interacting with the blog and resource data
 public class BlogResourceServices extends AbstractDao implements BlogResourceI {
 
+//This gets all blogs
 	@Override
 	public List<Blog> getAllBlogs() {
 		connect();
@@ -17,7 +19,7 @@ public class BlogResourceServices extends AbstractDao implements BlogResourceI {
 
 		return blogList;
 	}
-
+//This gets all resources
 	@Override
 	public List<Resource> getAllResources() {
 		connect();
@@ -26,12 +28,10 @@ public class BlogResourceServices extends AbstractDao implements BlogResourceI {
 		return resourceList;
 	}
 
+//This adds a blog to the blog table
 	@Override
 	public int addBlog(Blog blog) throws CustomException {
 		int row = 0;
-		// 1. connect ==> create entityManagerFactory & entityManager
-		// 2. execute
-		// 3. close
 		try {
 			connect();
 			em.getTransaction().begin();

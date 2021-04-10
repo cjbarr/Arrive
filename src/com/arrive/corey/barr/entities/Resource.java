@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//This is the resource entity object constructor and setters and getters
+
 @Entity
 @Table(name = "resource")
 public class Resource {

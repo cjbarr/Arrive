@@ -1,11 +1,14 @@
 package com.arrive.corey.barr.dao;
 
-import com.arrive.corey.barr.entities.CheckIn;
 import com.arrive.corey.barr.entities.User;
 import com.arrive.corey.barr.exceptions.CustomException;
 
+
+//This class contains the methods for interacting with the user data
 public class UserServices extends AbstractDao implements UserI {
 
+	
+	// this gets a user by id
 	@Override
 	public User getUserById(int id) throws CustomException {
 		User result = null;
@@ -22,6 +25,8 @@ public class UserServices extends AbstractDao implements UserI {
 		return result;
 	}
 
+	
+	//this takes in an email and password in order to make sure they exist in the db and log into the app
 	@Override
 	public int validateUser(String email, String password) throws CustomException {
 		int gotUser = 0;
@@ -39,6 +44,8 @@ public class UserServices extends AbstractDao implements UserI {
 		return gotUser;
 	}
 
+	
+	//this updates the users pixel display preference on the tracker page
 	@Override
 	public int updatePixelPref(int id, User user) throws CustomException {
 		try {

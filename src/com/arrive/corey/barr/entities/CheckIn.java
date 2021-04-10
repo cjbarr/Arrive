@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
+//This is the checkIn entity object constructor and setters and getters
 @Entity
 @Table(name = "checkIn")
 public class CheckIn {

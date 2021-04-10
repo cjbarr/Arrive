@@ -4,15 +4,14 @@ import java.util.List;
 
 import com.arrive.corey.barr.entities.CheckIn;
 import com.arrive.corey.barr.exceptions.CustomException;
-
+//This class contains the methods for interacting with checkIn data
 public class CheckInServices extends AbstractDao implements CheckInI {
 
+	
+	//This adds a checkIn
 	@Override
 	public int addCheckIn(CheckIn checkIn) throws CustomException {
 		int row = 0;
-		// 1. connect ==> create entityManagerFactory & entityManager
-		// 2. execute
-		// 3. close
 		try {
 			connect();
 			em.getTransaction().begin();
@@ -28,6 +27,7 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 		return row;
 	}
 
+	//This gets a checkin by id
 	@Override
 	public CheckIn getCheckInById(int id) throws CustomException {
 		CheckIn result = null;
@@ -44,6 +44,8 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 		return result;
 	}
 
+	
+	//this uses an id to delete the corresponding checkIn
 	@Override
 	public CheckIn deleteCheckInById(int id) throws CustomException {
 		CheckIn result = null;
@@ -63,6 +65,7 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 		return result;
 	}
 
+	//This grabs all checkins tied to the userId given
 	@Override
 	public List<CheckIn> getCheckInsByUserId(int idParam) {
 		connect();
@@ -74,6 +77,7 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 		return employeeList;
 	}
 
+	//This updates a checkin by id with the sent checkin object values
 	@Override
 	public int updateCheckInById(Integer id, CheckIn checkIn) throws CustomException {
 		try {

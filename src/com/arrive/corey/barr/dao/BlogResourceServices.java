@@ -19,6 +19,7 @@ public class BlogResourceServices extends AbstractDao implements BlogResourceI {
 
 		return blogList;
 	}
+
 //This gets all resources
 	@Override
 	public List<Resource> getAllResources() {

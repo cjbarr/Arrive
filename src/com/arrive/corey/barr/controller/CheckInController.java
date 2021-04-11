@@ -14,7 +14,6 @@ import com.arrive.corey.barr.dao.CheckInServices;
 import com.arrive.corey.barr.entities.CheckIn;
 import com.arrive.corey.barr.exceptions.CustomException;
 
-
 //Check in Crud is handled in the checkIn Controller
 @Controller
 @RequestMapping("/checkIn")

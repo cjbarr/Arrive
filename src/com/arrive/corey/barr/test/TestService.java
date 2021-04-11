@@ -18,76 +18,65 @@ import com.arrive.corey.barr.entities.CheckIn;
 import com.arrive.corey.barr.entities.Resource;
 import com.arrive.corey.barr.exceptions.CustomException;
 
-
-
 class TestService {
 	BlogResourceServices bRS = new BlogResourceServices();
 	CheckInServices cIS = new CheckInServices();
 	UserServices uS = new UserServices();
-	
+
 	@Test
 	public void testGetAllResources() {
-		List<Resource> actualResult  = bRS.getAllResources();
+		List<Resource> actualResult = bRS.getAllResources();
 		int actualResultSize = actualResult.size();
 		int expectedResultSize = 4;
 		assertEquals(expectedResultSize, actualResultSize);
-		
-		
+
 	}
-	
-	
+
 	@Test
 	public void testGetAllBlogs() {
-		List<Blog> actualResult  = bRS.getAllBlogs();
+		List<Blog> actualResult = bRS.getAllBlogs();
 		int actualResultSize = actualResult.size();
 		int expectedResultSize = 4;
 		assertEquals(expectedResultSize, actualResultSize);
-		
-		
+
 	}
-	
+
 	@Test
 	public void testAddBlog() throws CustomException {
 		Blog testBlog = new Blog();
-		int actualResult  = bRS.addBlog(testBlog);
+		int actualResult = bRS.addBlog(testBlog);
 		int expectedResult = 0;
 		assertEquals(expectedResult, actualResult);
-		
-		
+
 	}
-	
-	
+
 	@Test
 	public void testGetCheckInById() throws CustomException {
 
-		CheckIn testCheckIn  = cIS.getCheckInById(5);
+		CheckIn testCheckIn = cIS.getCheckInById(5);
 		String actualResult = testCheckIn.getFeelValue();
 		String expectedResult = "Okay";
 		assertEquals(expectedResult, actualResult);
-		
-		
+
 	}
-	
+
 	@Test
 	public void testGetCheckInsByUserId() throws CustomException {
 
-		List<CheckIn> actualResultList  = cIS.getCheckInsByUserId(2);
+		List<CheckIn> actualResultList = cIS.getCheckInsByUserId(2);
 		int actualResult = actualResultList.size();
 		int expectedResult = 2;
 		assertEquals(expectedResult, actualResult);
-		
-		
+
 	}
+
 	@Test
 	public void testValidateUser() throws CustomException {
 
 		int actualResult = uS.validateUser("admin@arrive.com", "admin");
 		int expectedResult = 2;
 		assertEquals(expectedResult, actualResult);
-		
-		
-	}
 
-	
+	}
 
 }

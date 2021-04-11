@@ -4,10 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-
 //This is the abstractDAO, it creates a constant connection that methods call on to access the database.
 public class AbstractDao {
-
 
 	private final static String PERSISTENCEUNITNAME = "arrivePersist";
 	protected static EntityManagerFactory emf = null;

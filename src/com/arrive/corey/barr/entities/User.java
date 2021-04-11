@@ -7,7 +7,6 @@ import javax.persistence.OneToMany;
 
 import jpa.entitymodels.Course;
 
-
 //This is the user entity object constructor and setters and getters
 @Entity
 public class User {

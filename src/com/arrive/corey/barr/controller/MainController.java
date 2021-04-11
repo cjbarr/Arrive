@@ -20,8 +20,6 @@ import com.arrive.corey.barr.entities.Resource;
 import com.arrive.corey.barr.entities.User;
 import com.arrive.corey.barr.exceptions.CustomException;
 
-
-
 //This is the main controller. It handles all mapping with the exception of the check in CRUD
 //Check in Crud is handled in the checkIn Controller
 
@@ -35,10 +33,10 @@ public class MainController {
 	static UserServices userServices = new UserServices();
 	// handlers
 
-	@RequestMapping("/") 
+	@RequestMapping("/")
 	public ModelAndView landingHandler() {
 		ModelAndView mav = new ModelAndView("landingPage");
-		return mav; 
+		return mav;
 	}
 
 	@RequestMapping("/blogPost") // "/" ==> this is the root or home page
@@ -49,7 +47,7 @@ public class MainController {
 		newBlog.setTitle(request.getParameter("blogTitle"));
 		blogResourceServices.addBlog(newBlog);
 
-		return "redirect:/index"; 
+		return "redirect:/index";
 	}
 
 	@RequestMapping(value = { "/index" })
@@ -61,7 +59,7 @@ public class MainController {
 		model.put("blog", blogList);
 		model.put("user", user);
 		ModelAndView mav = new ModelAndView("index", "model", model);
-		return mav; 
+		return mav;
 	}
 
 	@RequestMapping("/checkIn")
@@ -72,10 +70,10 @@ public class MainController {
 		return mav; // view file name checkIn.jsp
 	}
 
-	@RequestMapping("/details") 
+	@RequestMapping("/details")
 	public ModelAndView detailsHandler() {
 		ModelAndView mav = new ModelAndView("details");
-		return mav; 
+		return mav;
 	}
 
 	@RequestMapping("/pixelUpdate")
@@ -87,7 +85,7 @@ public class MainController {
 		return "redirect:/tracker";
 	}
 
-	@RequestMapping("/profile") 
+	@RequestMapping("/profile")
 	public ModelAndView profileHandler(HttpServletRequest request) throws CustomException {
 		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
 		User user = userServices.getUserById(loggedUser);
@@ -102,10 +100,10 @@ public class MainController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("resource", resourceList);
 		ModelAndView mav = new ModelAndView("resources", "model", model);
-		return mav; 
+		return mav;
 	}
 
-	@RequestMapping("/tracker") 
+	@RequestMapping("/tracker")
 	public ModelAndView trackerHandler(HttpServletRequest request) throws CustomException {
 		int loggedUser = (int) request.getSession().getAttribute("loggedInUser");
 		User user = userServices.getUserById(loggedUser);
@@ -117,18 +115,18 @@ public class MainController {
 		return mav;
 	}
 
-	@RequestMapping("/logOut") 
+	@RequestMapping("/logOut")
 	public String logOutHandler(HttpServletRequest request) {
 		request.getSession().setAttribute("loggedInUser", 0);
-		return "redirect:/"; 
+		return "redirect:/";
 	}
 
-	@RequestMapping("/logInAttempt") 
+	@RequestMapping("/logInAttempt")
 	public String logInAttempt(HttpServletRequest request) throws CustomException {
 		int userId = userServices.validateUser(request.getParameter("email"), request.getParameter("password"));
 		request.getSession().setAttribute("loggedInUser", userId);
 		if (userId != 0) {
-			return "redirect:/index"; 
+			return "redirect:/index";
 		} else {
 			return "redirect:/";
 		}

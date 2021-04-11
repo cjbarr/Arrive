@@ -37,7 +37,7 @@ public class CheckInServices extends AbstractDao implements CheckInI {
 			result = em.find(CheckIn.class, id);
 
 		} catch (Exception e) {
-			throw new CustomException("Error in dgetCheckInById");
+			throw new CustomException("Error in getCheckInById");
 		} finally {
 			dispose();
 		}
